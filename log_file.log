@@ -1,0 +1,1948 @@
+info_logging.py [LINE:7] #WARNING [2022-05-27 00:04:07,272]  Это будет записано в log-файл
+info_logging.py [LINE:7] #WARNING [2022-05-27 00:10:19,845]  Это будет записано в log-файл
+info_logging.py [LINE:7] #WARNING [2022-05-27 00:11:21,308]  Это будет записано в log-файл
+info_logging.py [LINE:7] #WARNING [2022-05-27 00:11:36,796]  Это будет записано в log-файл
+info_logging.py [LINE:7] #WARNING [2022-05-27 00:12:01,698]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 00:12:04,679]  Bot: BookingHotels [@BookingHotels214_bot]
+notify_admins.py [LINE:11] #ERROR [2022-05-27 00:12:05,116]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+db.py [LINE:77] #INFO [2022-05-27 00:12:05,133]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 00:12:05,143]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 00:12:05,154]  Start polling.
+db.py [LINE:77] #INFO [2022-05-27 00:12:21,406]  SELECT id FROM Users WHERE telegram_id=643612405
+db.py [LINE:77] #INFO [2022-05-27 00:12:21,407]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 00:12:21,407]  INSERT INTO Users (telegram_id, name) VALUES (?,?);
+db.py [LINE:77] #INFO [2022-05-27 00:12:21,408]  COMMIT
+lowprice.py [LINE:17] #INFO [2022-05-27 00:12:30,241]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:12:35,358]  643612405 Moscow
+lowprice.py [LINE:17] #INFO [2022-05-27 00:12:44,840]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:12:50,181]  643612405 Москва
+highprice.py [LINE:19] #INFO [2022-05-27 00:13:35,141]  643612405 /highprice
+highprice.py [LINE:40] #INFO [2022-05-27 00:13:40,368]  643612405 Якутск
+highprice.py [LINE:68] #ERROR [2022-05-27 00:13:41,637]  'suggestions'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 47, in input_city_func
+    city_id = hotels_in_city(city)
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\api_requests\hotels_in_city.py", line 18, in hotels_in_city
+    return response.json()['suggestions'][0]['entities'][0]['destinationId']
+KeyError: 'suggestions'
+unexpected_case.py [LINE:12] #INFO [2022-05-27 00:13:49,999]  643612405 Las Vegas
+help.py [LINE:10] #INFO [2022-05-27 00:13:53,464]  643612405 /help
+history.py [LINE:13] #INFO [2022-05-27 00:13:56,773]  643612405 /history
+db.py [LINE:77] #INFO [2022-05-27 00:13:56,774]  SELECT * FROM History WHERE telegram_id=643612405
+bestdeal.py [LINE:22] #INFO [2022-05-27 00:13:58,958]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 00:14:10,020]  643612405 New York
+bestdeal.py [LINE:67] #INFO [2022-05-27 00:14:20,421]  643612405 700-2000
+bestdeal.py [LINE:89] #INFO [2022-05-27 00:14:28,044]  643612405 1-5
+bestdeal.py [LINE:151] #ERROR [2022-05-27 00:14:29,236]  'suggestions'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\bestdeal.py", line 102, in input_city_func
+    city_id = hotels_in_city(city)
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\api_requests\hotels_in_city.py", line 18, in hotels_in_city
+    return response.json()['suggestions'][0]['entities'][0]['destinationId']
+KeyError: 'suggestions'
+info_logging.py [LINE:7] #WARNING [2022-05-27 00:32:14,362]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 00:32:14,775]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 00:32:15,118]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 00:32:15,119]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 00:32:15,120]  Start polling.
+lowprice.py [LINE:17] #INFO [2022-05-27 00:32:23,289]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:32:31,558]  643612405 New York
+unexpected_case.py [LINE:12] #INFO [2022-05-27 00:32:40,770]  643612405 москва
+help.py [LINE:10] #INFO [2022-05-27 00:32:44,176]  643612405 /help
+history.py [LINE:13] #INFO [2022-05-27 00:32:46,670]  643612405 /history
+db.py [LINE:77] #INFO [2022-05-27 00:32:46,671]  SELECT * FROM History WHERE telegram_id=643612405
+bestdeal.py [LINE:22] #INFO [2022-05-27 00:32:48,654]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 00:32:52,558]  643612405 Москва
+bestdeal.py [LINE:67] #INFO [2022-05-27 00:32:59,830]  643612405 800-2000
+unexpected_case.py [LINE:12] #INFO [2022-05-27 00:33:02,702]  643612405 105
+unexpected_case.py [LINE:12] #INFO [2022-05-27 00:33:05,151]  643612405 1-5
+help.py [LINE:10] #INFO [2022-05-27 00:33:18,372]  643612405 /help
+bestdeal.py [LINE:22] #INFO [2022-05-27 00:33:19,951]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 00:33:24,143]  643612405 Якутск
+bestdeal.py [LINE:67] #INFO [2022-05-27 00:33:29,098]  643612405 700-2000
+bestdeal.py [LINE:89] #INFO [2022-05-27 00:33:31,305]  643612405 1-5
+bestdeal.py [LINE:151] #ERROR [2022-05-27 00:33:32,728]  'suggestions'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\bestdeal.py", line 102, in input_city_func
+    city_id = hotels_in_city(city)
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\api_requests\hotels_in_city.py", line 18, in hotels_in_city
+    return response.json()['suggestions'][0]['entities'][0]['destinationId']
+KeyError: 'suggestions'
+info_logging.py [LINE:7] #WARNING [2022-05-27 00:39:06,877]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 00:39:07,404]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 00:39:07,781]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 00:39:07,782]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 00:39:07,782]  Start polling.
+lowprice.py [LINE:17] #INFO [2022-05-27 00:39:13,595]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:39:21,389]  643612405 Yakutsk
+unexpected_case.py [LINE:12] #INFO [2022-05-27 00:39:27,692]  643612405 moscow
+help.py [LINE:10] #INFO [2022-05-27 00:39:32,116]  643612405 /help
+bestdeal.py [LINE:22] #INFO [2022-05-27 00:39:34,488]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 00:39:45,209]  643612405 moscow
+bestdeal.py [LINE:67] #INFO [2022-05-27 00:39:49,441]  643612405 700-2000
+unexpected_case.py [LINE:12] #INFO [2022-05-27 00:39:51,899]  643612405 105
+unexpected_case.py [LINE:12] #INFO [2022-05-27 00:39:55,332]  643612405 1-5
+help.py [LINE:10] #INFO [2022-05-27 00:39:57,216]  643612405 /help
+bestdeal.py [LINE:22] #INFO [2022-05-27 00:40:00,016]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 00:40:03,318]  643612405 moscow
+bestdeal.py [LINE:67] #INFO [2022-05-27 00:40:09,099]  643612405 700-2000
+bestdeal.py [LINE:89] #INFO [2022-05-27 00:40:11,770]  643612405 1-5
+bestdeal.py [LINE:22] #INFO [2022-05-27 00:40:20,899]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 00:40:31,130]  643612405 /highprice
+highprice.py [LINE:19] #INFO [2022-05-27 00:40:37,939]  643612405 /highprice
+highprice.py [LINE:40] #INFO [2022-05-27 00:40:43,740]  643612405 moscow
+highprice.py [LINE:77] #INFO [2022-05-27 00:40:55,883]  643612405 10
+highprice.py [LINE:95] #INFO [2022-05-27 00:40:59,551]  643612405 photos_yes
+highprice.py [LINE:176] #INFO [2022-05-27 00:41:04,439]  643612405 5
+db.py [LINE:77] #INFO [2022-05-27 00:41:35,324]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 00:41:35,324]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 00:41:35,326]  COMMIT
+history.py [LINE:13] #INFO [2022-05-27 00:41:46,034]  643612405 /history
+db.py [LINE:77] #INFO [2022-05-27 00:41:46,036]  SELECT * FROM History WHERE telegram_id=643612405
+lowprice.py [LINE:17] #INFO [2022-05-27 00:42:30,573]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:42:33,985]  643612405 moscow
+lowprice.py [LINE:72] #INFO [2022-05-27 00:42:42,058]  643612405 5
+lowprice.py [LINE:100] #INFO [2022-05-27 00:42:44,284]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 00:42:47,618]  643612405 5
+db.py [LINE:77] #INFO [2022-05-27 00:42:57,611]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 00:42:57,611]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 00:42:57,623]  COMMIT
+help.py [LINE:10] #INFO [2022-05-27 00:43:08,743]  643612405 /help
+lowprice.py [LINE:17] #INFO [2022-05-27 00:43:14,051]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:43:18,914]  643612405 yakutsk
+lowprice.py [LINE:17] #INFO [2022-05-27 00:43:24,300]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:43:26,927]  643612405 якутск
+lowprice.py [LINE:17] #INFO [2022-05-27 00:43:30,647]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:43:33,088]  643612405 Москва
+lowprice.py [LINE:17] #INFO [2022-05-27 00:43:37,464]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:43:49,128]  643612405 Sochi
+help.py [LINE:10] #INFO [2022-05-27 00:44:01,654]  643612405 /help
+lowprice.py [LINE:17] #INFO [2022-05-27 00:44:03,287]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 00:44:07,987]  643612405 Sochi
+bestdeal.py [LINE:22] #INFO [2022-05-27 00:44:19,877]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 00:44:24,278]  643612405 Sochi
+bestdeal.py [LINE:67] #INFO [2022-05-27 00:44:31,769]  643612405 0-100000
+bestdeal.py [LINE:89] #INFO [2022-05-27 00:44:35,860]  643612405 1-5
+bestdeal.py [LINE:22] #INFO [2022-05-27 00:44:44,165]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 00:44:47,892]  643612405 Sochi
+bestdeal.py [LINE:67] #INFO [2022-05-27 00:44:55,382]  643612405 1000-100000
+bestdeal.py [LINE:89] #INFO [2022-05-27 00:44:59,026]  643612405 1-20
+info_logging.py [LINE:7] #WARNING [2022-05-27 01:27:17,654]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 01:27:18,095]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 01:27:18,472]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 01:27:18,472]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 01:27:18,473]  Start polling.
+history.py [LINE:13] #INFO [2022-05-27 01:27:24,571]  643612405 /history
+db.py [LINE:77] #INFO [2022-05-27 01:27:24,572]  SELECT * FROM History WHERE telegram_id=643612405
+highprice.py [LINE:19] #INFO [2022-05-27 01:27:41,549]  643612405 /highprice
+highprice.py [LINE:40] #INFO [2022-05-27 01:27:45,677]  643612405 moscow
+highprice.py [LINE:77] #INFO [2022-05-27 01:27:53,977]  643612405 1
+highprice.py [LINE:95] #INFO [2022-05-27 01:27:56,520]  643612405 photos_yes
+highprice.py [LINE:176] #INFO [2022-05-27 01:28:00,272]  643612405 10
+db.py [LINE:77] #INFO [2022-05-27 01:28:04,423]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 01:28:04,423]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 01:28:04,424]  COMMIT
+lowprice.py [LINE:17] #INFO [2022-05-27 01:39:26,354]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 01:39:33,395]  643612405 moscow
+lowprice.py [LINE:72] #INFO [2022-05-27 01:39:52,024]  643612405 10
+lowprice.py [LINE:100] #INFO [2022-05-27 01:39:55,849]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 01:40:02,011]  643612405 10
+lowprice.py [LINE:226] #ERROR [2022-05-27 01:40:10,635]  Group send failed
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 223, in show_low_price_hotels_with_photo
+    await message.answer_media_group(media=album)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\types\message.py", line 1045, in answer_media_group
+    return await self.bot.send_media_group(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 1100, in send_media_group
+    result = await self.request(api.Methods.SEND_MEDIA_GROUP, payload, files)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 141, in detect
+    raise cls(description)
+aiogram.utils.exceptions.BadRequest: Group send failed
+lowprice.py [LINE:17] #INFO [2022-05-27 01:40:28,177]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 01:40:34,045]  643612405 yakutsk
+lowprice.py [LINE:226] #ERROR [2022-05-27 01:40:45,854]  Group send failed
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 223, in show_low_price_hotels_with_photo
+    await message.answer_media_group(media=album)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\types\message.py", line 1045, in answer_media_group
+    return await self.bot.send_media_group(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 1100, in send_media_group
+    result = await self.request(api.Methods.SEND_MEDIA_GROUP, payload, files)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 141, in detect
+    raise cls(description)
+aiogram.utils.exceptions.BadRequest: Group send failed
+db.py [LINE:77] #INFO [2022-05-27 01:40:45,856]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 01:40:45,856]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 01:40:45,858]  COMMIT
+info_logging.py [LINE:7] #WARNING [2022-05-27 02:00:11,678]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 02:00:12,085]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 02:00:12,560]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 02:00:12,561]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 02:00:12,562]  Start polling.
+bestdeal.py [LINE:22] #INFO [2022-05-27 02:00:19,858]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 02:00:29,977]  643612405 yakutsk
+bestdeal.py [LINE:67] #INFO [2022-05-27 02:00:41,732]  643612405 700-20000
+bestdeal.py [LINE:89] #INFO [2022-05-27 02:00:46,652]  643612405 1-10
+bestdeal.py [LINE:151] #ERROR [2022-05-27 02:00:48,573]  list index out of range
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\bestdeal.py", line 102, in input_city_func
+    city_id = hotels_in_city(city)
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\api_requests\hotels_in_city.py", line 18, in hotels_in_city
+    return response.json()['suggestions'][0]['entities'][0]['destinationId']
+IndexError: list index out of range
+bestdeal.py [LINE:22] #INFO [2022-05-27 02:00:51,619]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 02:00:56,590]  643612405 moscow
+bestdeal.py [LINE:67] #INFO [2022-05-27 02:01:02,955]  643612405 700-10000
+bestdeal.py [LINE:89] #INFO [2022-05-27 02:01:05,827]  643612405 1-5
+bestdeal.py [LINE:160] #INFO [2022-05-27 02:01:17,193]  643612405 1
+bestdeal.py [LINE:186] #INFO [2022-05-27 02:01:19,114]  643612405 photos_yes
+bestdeal.py [LINE:256] #INFO [2022-05-27 02:01:22,328]  643612405 5
+db.py [LINE:77] #INFO [2022-05-27 02:01:24,639]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 02:01:24,639]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 02:01:24,642]  COMMIT
+history.py [LINE:13] #INFO [2022-05-27 02:01:30,403]  643612405 /history
+db.py [LINE:77] #INFO [2022-05-27 02:01:30,405]  SELECT * FROM History WHERE telegram_id=643612405
+db.py [LINE:77] #INFO [2022-05-27 02:04:50,059]  SELECT id FROM Users WHERE telegram_id=1726046045
+db.py [LINE:77] #INFO [2022-05-27 02:04:50,060]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 02:04:50,060]  INSERT INTO Users (telegram_id, name) VALUES (?,?);
+db.py [LINE:77] #INFO [2022-05-27 02:04:50,061]  COMMIT
+lowprice.py [LINE:17] #INFO [2022-05-27 02:04:59,592]  1726046045 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 02:05:17,217]  1726046045 Sochi
+lowprice.py [LINE:17] #INFO [2022-05-27 02:05:31,052]  1726046045 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 02:05:36,064]  1726046045 Moscow
+lowprice.py [LINE:72] #INFO [2022-05-27 02:05:48,775]  1726046045 3
+lowprice.py [LINE:100] #INFO [2022-05-27 02:05:53,654]  1726046045 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 02:05:58,979]  1726046045 5
+db.py [LINE:77] #INFO [2022-05-27 02:06:05,199]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 02:06:05,200]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 02:06:05,208]  COMMIT
+info_logging.py [LINE:7] #WARNING [2022-05-27 02:10:18,343]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 02:10:18,766]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 02:10:19,193]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 02:10:19,193]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 02:10:19,194]  Start polling.
+info_logging.py [LINE:7] #WARNING [2022-05-27 02:14:05,440]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 02:14:05,861]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 02:14:06,252]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 02:14:06,253]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 02:14:06,253]  Start polling.
+history.py [LINE:13] #INFO [2022-05-27 02:14:15,765]  643612405 /history
+db.py [LINE:77] #INFO [2022-05-27 02:14:15,766]  SELECT * FROM History WHERE telegram_id=643612405
+info_logging.py [LINE:7] #WARNING [2022-05-27 02:17:06,495]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 02:17:06,940]  Bot: BookingHotels [@BookingHotels214_bot]
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:07,261]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:07,430]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:07,617]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:07,779]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:07,939]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:08,129]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:08,288]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:08,429]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:17:08,595]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+db.py [LINE:77] #INFO [2022-05-27 02:17:08,596]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 02:17:08,597]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 02:17:08,597]  Start polling.
+lowprice.py [LINE:17] #INFO [2022-05-27 02:17:15,160]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 02:17:18,731]  643612405 moscow
+lowprice.py [LINE:72] #INFO [2022-05-27 02:17:26,492]  643612405 1
+lowprice.py [LINE:100] #INFO [2022-05-27 02:17:28,881]  643612405 photos_no
+db.py [LINE:77] #INFO [2022-05-27 02:17:29,434]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 02:17:29,434]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 02:17:29,436]  COMMIT
+info_logging.py [LINE:7] #WARNING [2022-05-27 02:18:06,319]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 02:18:06,742]  Bot: BookingHotels [@BookingHotels214_bot]
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:07,042]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:07,213]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:07,374]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:07,575]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:07,734]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:07,897]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:08,058]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:08,197]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:18:08,354]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+db.py [LINE:77] #INFO [2022-05-27 02:18:08,358]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 02:18:08,360]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 02:18:08,360]  Start polling.
+info_logging.py [LINE:7] #WARNING [2022-05-27 02:19:54,598]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 02:19:55,041]  Bot: BookingHotels [@BookingHotels214_bot]
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:55,620]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:55,913]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:56,208]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:56,505]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:56,763]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:57,004]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:57,371]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:57,514]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 02:19:57,739]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+db.py [LINE:77] #INFO [2022-05-27 02:19:57,742]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 02:19:57,743]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 02:19:57,743]  Start polling.
+highprice.py [LINE:19] #INFO [2022-05-27 02:19:59,003]  643612405 /highprice
+highprice.py [LINE:40] #INFO [2022-05-27 02:20:04,836]  643612405 minsk
+highprice.py [LINE:77] #INFO [2022-05-27 02:20:12,990]  643612405 1
+highprice.py [LINE:95] #INFO [2022-05-27 02:20:15,069]  643612405 photos_yes
+highprice.py [LINE:176] #INFO [2022-05-27 02:20:18,105]  643612405 1
+highprice.py [LINE:233] #ERROR [2022-05-27 02:20:18,308]  'streetAddress'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 194, in show_high_price_hotels_with_photo
+    hotel_address = hotel['address']['streetAddress']
+KeyError: 'streetAddress'
+db.py [LINE:77] #INFO [2022-05-27 02:20:20,917]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 02:20:20,917]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 02:20:20,920]  COMMIT
+info_logging.py [LINE:7] #WARNING [2022-05-27 12:37:41,659]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 12:37:42,083]  Bot: BookingHotels [@BookingHotels214_bot]
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:42,387]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:42,546]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:42,710]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:42,863]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:43,012]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:43,166]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:43,315]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:43,451]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:37:43,602]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+db.py [LINE:77] #INFO [2022-05-27 12:37:43,612]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 12:37:43,612]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 12:37:43,613]  Start polling.
+lowprice.py [LINE:16] #INFO [2022-05-27 12:37:57,553]  643612405 /lowprice
+lowprice.py [LINE:36] #INFO [2022-05-27 12:38:02,443]  643612405 moscow
+lowprice.py [LINE:71] #INFO [2022-05-27 12:38:10,532]  643612405 2
+lowprice.py [LINE:99] #INFO [2022-05-27 12:38:12,662]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 12:38:14,866]  643612405 2
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:16,915]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:18,473]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:20,074]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:21,743]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:23,435]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:25,507]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:27,532]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:28,756]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:30,469]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:32,071]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:33,585]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:35,219]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:36,704]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:38,209]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:40,179]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:41,711]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:43,737]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:44,934]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:46,490]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:48,154]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:49,799]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:51,417]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:53,492]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:55,751]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+lowprice.py [LINE:227] #ERROR [2022-05-27 12:38:57,353]  'content'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 200, in show_low_price_hotels_with_photo
+    hotel_description = "Название отеля: {name}\n" \
+KeyError: 'content'
+db.py [LINE:77] #INFO [2022-05-27 12:38:57,356]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 12:38:57,356]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 12:38:57,356]  COMMIT
+info_logging.py [LINE:7] #WARNING [2022-05-27 12:41:22,581]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 12:41:22,994]  Bot: BookingHotels [@BookingHotels214_bot]
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:23,284]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:23,438]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:23,584]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:23,740]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:23,892]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:24,051]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:24,204]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:24,340]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+notify_admins.py [LINE:11] #ERROR [2022-05-27 12:41:24,485]  Chat not found
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\notify_admins.py", line 9, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 334, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+db.py [LINE:77] #INFO [2022-05-27 12:41:24,487]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 12:41:24,487]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 12:41:24,488]  Start polling.
+lowprice.py [LINE:17] #INFO [2022-05-27 12:41:28,488]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 12:41:31,865]  643612405 moscow
+lowprice.py [LINE:17] #INFO [2022-05-27 12:41:47,212]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 12:41:51,036]  643612405 moscow
+lowprice.py [LINE:72] #INFO [2022-05-27 12:42:00,582]  643612405 3
+lowprice.py [LINE:100] #INFO [2022-05-27 12:42:02,385]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 12:42:04,894]  643612405 5
+db.py [LINE:77] #INFO [2022-05-27 12:42:10,463]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 12:42:10,463]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 12:42:10,464]  COMMIT
+info_logging.py [LINE:7] #WARNING [2022-05-27 13:26:12,036]  Это будет записано в log-файл
+info_logging.py [LINE:7] #WARNING [2022-05-27 13:26:21,479]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 13:26:21,894]  Bot: BookingHotels [@BookingHotels214_bot]
+executor.py [LINE:329] #WARNING [2022-05-27 13:26:22,037]  Goodbye!
+info_logging.py [LINE:7] #WARNING [2022-05-27 13:26:32,396]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 13:26:32,807]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 13:26:32,949]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 13:26:32,950]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 13:26:32,951]  Start polling.
+db.py [LINE:77] #INFO [2022-05-27 13:26:39,289]  SELECT id FROM Users WHERE telegram_id=643612405
+lowprice.py [LINE:17] #INFO [2022-05-27 13:26:43,321]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 13:26:57,079]  643612405 khabarovsk
+unexpected_case.py [LINE:12] #INFO [2022-05-27 13:27:04,118]  643612405 moscow
+lowprice.py [LINE:17] #INFO [2022-05-27 13:27:07,187]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 13:27:09,458]  643612405 moscow
+lowprice.py [LINE:72] #INFO [2022-05-27 13:27:16,582]  643612405 5
+lowprice.py [LINE:100] #INFO [2022-05-27 13:27:18,407]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 13:27:25,352]  643612405 6
+db.py [LINE:77] #INFO [2022-05-27 13:27:35,857]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 13:27:35,857]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 13:27:35,859]  COMMIT
+highprice.py [LINE:19] #INFO [2022-05-27 13:28:01,192]  643612405 /highprice
+highprice.py [LINE:40] #INFO [2022-05-27 13:28:05,310]  643612405 moscow
+highprice.py [LINE:77] #INFO [2022-05-27 13:28:13,415]  643612405 10
+highprice.py [LINE:95] #INFO [2022-05-27 13:28:15,242]  643612405 photos_yes
+highprice.py [LINE:176] #INFO [2022-05-27 13:28:17,718]  643612405 6
+db.py [LINE:77] #INFO [2022-05-27 13:28:43,498]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 13:28:43,498]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 13:28:43,500]  COMMIT
+bestdeal.py [LINE:22] #INFO [2022-05-27 13:28:55,171]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 13:28:58,445]  643612405 moscow
+bestdeal.py [LINE:67] #INFO [2022-05-27 13:29:07,159]  643612405 700-9000
+bestdeal.py [LINE:89] #INFO [2022-05-27 13:29:12,056]  643612405 1-10
+bestdeal.py [LINE:160] #INFO [2022-05-27 13:29:21,562]  643612405 5
+bestdeal.py [LINE:186] #INFO [2022-05-27 13:29:23,777]  643612405 photos_yes
+bestdeal.py [LINE:256] #INFO [2022-05-27 13:29:26,651]  643612405 6
+db.py [LINE:77] #INFO [2022-05-27 13:29:36,703]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 13:29:36,703]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 13:29:36,705]  COMMIT
+history.py [LINE:13] #INFO [2022-05-27 13:29:47,723]  643612405 /history
+db.py [LINE:77] #INFO [2022-05-27 13:29:47,724]  SELECT * FROM History WHERE telegram_id=643612405
+dispatcher.py [LINE:390] #ERROR [2022-05-27 15:27:31,324]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 559, in _request
+    await resp.start(conn)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client_reqrep.py", line 898, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\streams.py", line 616, in read
+    await self._waiter
+aiohttp.client_exceptions.ClientOSError: [WinError 1236] Подключение к сети было разорвано локальной системой
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientOSError: [WinError 1236] Подключение к сети было разорвано локальной системой
+help.py [LINE:10] #INFO [2022-05-27 15:41:58,027]  643612405 /help
+lowprice.py [LINE:17] #INFO [2022-05-27 15:42:02,280]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 15:42:07,274]  643612405 yakutsk
+unexpected_case.py [LINE:12] #INFO [2022-05-27 15:42:13,719]  643612405 Yakutsk
+help.py [LINE:10] #INFO [2022-05-27 15:42:17,083]  643612405 /help
+lowprice.py [LINE:17] #INFO [2022-05-27 15:42:18,882]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 15:42:52,502]  643612405 Russia
+lowprice.py [LINE:72] #INFO [2022-05-27 15:43:02,052]  643612405 2
+lowprice.py [LINE:100] #INFO [2022-05-27 15:43:04,130]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 15:43:06,785]  643612405 5
+db.py [LINE:77] #INFO [2022-05-27 15:43:14,561]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 15:43:14,561]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 15:43:14,562]  COMMIT
+info_logging.py [LINE:7] #WARNING [2022-05-27 16:00:11,463]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 16:00:11,878]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 16:00:12,162]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 16:00:12,163]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 16:00:12,163]  Start polling.
+db.py [LINE:77] #INFO [2022-05-27 16:00:18,631]  SELECT id FROM Users WHERE telegram_id=643612405
+highprice.py [LINE:19] #INFO [2022-05-27 16:00:20,717]  643612405 /highprice
+highprice.py [LINE:40] #INFO [2022-05-27 16:04:55,473]  643612405 karakol
+highprice.py [LINE:77] #INFO [2022-05-27 16:05:03,071]  643612405 5
+highprice.py [LINE:95] #INFO [2022-05-27 16:05:04,588]  643612405 photos_yes
+highprice.py [LINE:176] #INFO [2022-05-27 16:05:17,231]  643612405 5
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,390]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,394]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,394]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,395]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,395]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,395]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,395]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,396]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,396]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,396]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,396]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+highprice.py [LINE:233] #ERROR [2022-05-27 16:05:35,397]  'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 196, in show_high_price_hotels_with_photo
+    hotel_price = hotel.get('ratePlan').get('price')['current']
+AttributeError: 'NoneType' object has no attribute 'get'
+db.py [LINE:77] #INFO [2022-05-27 16:05:35,399]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 16:05:35,399]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 16:05:35,400]  COMMIT
+bestdeal.py [LINE:22] #INFO [2022-05-27 16:18:04,890]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 16:18:11,880]  643612405 sochi
+bestdeal.py [LINE:67] #INFO [2022-05-27 16:18:17,632]  643612405 1000-1000
+bestdeal.py [LINE:89] #INFO [2022-05-27 16:18:20,370]  643612405 1-10
+bestdeal.py [LINE:22] #INFO [2022-05-27 16:18:30,516]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 16:18:33,720]  643612405 yakutsk
+bestdeal.py [LINE:67] #INFO [2022-05-27 16:18:39,598]  643612405 1000-10000
+bestdeal.py [LINE:89] #INFO [2022-05-27 16:18:42,882]  643612405 1-20
+bestdeal.py [LINE:151] #ERROR [2022-05-27 16:18:44,290]  list index out of range
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\bestdeal.py", line 102, in input_city_func
+    city_id = hotels_in_city(city)
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\api_requests\hotels_in_city.py", line 18, in hotels_in_city
+    return response.json()['suggestions'][0]['entities'][0]['destinationId']
+IndexError: list index out of range
+bestdeal.py [LINE:22] #INFO [2022-05-27 16:18:48,909]  643612405 /bestdeal
+bestdeal.py [LINE:48] #INFO [2022-05-27 16:18:55,047]  643612405 las vegas
+bestdeal.py [LINE:67] #INFO [2022-05-27 16:19:03,471]  643612405 1000-20000
+bestdeal.py [LINE:89] #INFO [2022-05-27 16:19:06,229]  643612405 1-10
+bestdeal.py [LINE:160] #INFO [2022-05-27 16:19:19,110]  643612405 5
+bestdeal.py [LINE:186] #INFO [2022-05-27 16:19:20,597]  643612405 photos_yes
+bestdeal.py [LINE:256] #INFO [2022-05-27 16:19:22,758]  643612405 5
+db.py [LINE:77] #INFO [2022-05-27 16:19:36,480]  BEGIN 
+db.py [LINE:77] #INFO [2022-05-27 16:19:36,480]  INSERT INTO History (telegram_id, command, datetime, result) VALUES (?,?,?,?);
+db.py [LINE:77] #INFO [2022-05-27 16:19:36,481]  COMMIT
+dispatcher.py [LINE:390] #ERROR [2022-05-27 18:13:48,081]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 559, in _request
+    await resp.start(conn)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client_reqrep.py", line 893, in start
+    with self._timer:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\helpers.py", line 721, in __exit__
+    raise asyncio.TimeoutError from None
+asyncio.exceptions.TimeoutError
+dispatcher.py [LINE:390] #ERROR [2022-05-27 18:13:53,617]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1154, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 880, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 860, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 535, in _request
+    conn = await self._connector.connect(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 542, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 907, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1166, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+dispatcher.py [LINE:390] #ERROR [2022-05-27 18:13:58,696]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1154, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 880, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 860, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 535, in _request
+    conn = await self._connector.connect(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 542, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 907, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1166, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+dispatcher.py [LINE:390] #ERROR [2022-05-27 20:54:32,923]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1154, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 880, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 860, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 535, in _request
+    conn = await self._connector.connect(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 542, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 907, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1166, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+dispatcher.py [LINE:390] #ERROR [2022-05-27 20:54:37,940]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1154, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 880, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 860, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 535, in _request
+    conn = await self._connector.connect(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 542, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 907, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1166, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+dispatcher.py [LINE:390] #ERROR [2022-05-27 20:54:42,948]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1154, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 880, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 860, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 535, in _request
+    conn = await self._connector.connect(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 542, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 907, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1166, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+dispatcher.py [LINE:390] #ERROR [2022-05-27 20:54:47,952]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1154, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 880, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 860, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 535, in _request
+    conn = await self._connector.connect(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 542, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 907, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1166, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+dispatcher.py [LINE:390] #ERROR [2022-05-27 20:54:52,969]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1154, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 880, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 860, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 535, in _request
+    conn = await self._connector.connect(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 542, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 907, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1166, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+dispatcher.py [LINE:390] #ERROR [2022-05-27 20:54:57,981]  Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1154, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 880, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\asyncio\base_events.py", line 860, in getaddrinfo
+    return await self.run_in_executor(
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.1264.0_x64__qbz5n2kfra8p0\lib\socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 1138, in __aenter__
+    self._resp = await self._coro
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\client.py", line 535, in _request
+    conn = await self._connector.connect(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 542, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 907, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiohttp\connector.py", line 1166, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\base.py", line 231, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "C:\Users\zidan\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+info_logging.py [LINE:7] #WARNING [2022-05-27 21:02:00,340]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 21:02:01,223]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 21:02:01,443]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 21:02:01,444]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 21:02:01,445]  Start polling.
+lowprice.py [LINE:17] #INFO [2022-05-27 21:02:18,672]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 21:02:22,432]  643612405 moscow
+lowprice.py [LINE:72] #INFO [2022-05-27 21:02:30,181]  643612405 2
+lowprice.py [LINE:100] #INFO [2022-05-27 21:02:32,620]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 21:02:35,235]  643612405 5
+lowprice.py [LINE:239] #ERROR [2022-05-27 21:02:39,763]  Database.add_history() missing 1 required positional argument: 'result'
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 232, in show_low_price_hotels_with_photo
+    db.add_history(message.from_user.id, command, command_datetime,
+TypeError: Database.add_history() missing 1 required positional argument: 'result'
+info_logging.py [LINE:7] #WARNING [2022-05-27 21:04:09,187]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-27 21:04:09,689]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-27 21:04:09,858]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-27 21:04:09,859]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-27 21:04:09,860]  Start polling.
+lowprice.py [LINE:17] #INFO [2022-05-27 21:04:23,431]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-27 21:04:28,866]  643612405 moscow
+lowprice.py [LINE:72] #INFO [2022-05-27 21:04:38,102]  643612405 2
+lowprice.py [LINE:100] #INFO [2022-05-27 21:04:40,931]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-27 21:04:44,223]  643612405 5
+lowprice.py [LINE:239] #ERROR [2022-05-27 21:04:48,723]  5 values for 4 columns
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 232, in show_low_price_hotels_with_photo
+    db.add_history(message.from_user.id, command, command_datetime,
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\db_sql\db.py", line 69, in add_history
+    self.execute(sql, parameters=parameters, commit=True)
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\db_sql\db.py", line 24, in execute
+    cursor.execute(sql, parameters)
+sqlite3.OperationalError: 5 values for 4 columns
+highprice.py [LINE:19] #INFO [2022-05-27 21:05:34,742]  643612405 /highprice
+highprice.py [LINE:40] #INFO [2022-05-27 21:05:39,359]  643612405 kiev
+highprice.py [LINE:77] #INFO [2022-05-27 21:05:50,610]  643612405 2
+highprice.py [LINE:95] #INFO [2022-05-27 21:05:52,578]  643612405 photos_yes
+highprice.py [LINE:176] #INFO [2022-05-27 21:06:06,626]  643612405 5
+highprice.py [LINE:247] #ERROR [2022-05-27 21:06:17,576]  5 values for 4 columns
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\highprice.py", line 239, in show_high_price_hotels_with_photo
+    db.add_history(message.from_user.id, command, command_datetime,
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\db_sql\db.py", line 69, in add_history
+    self.execute(sql, parameters=parameters, commit=True)
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\db_sql\db.py", line 24, in execute
+    cursor.execute(sql, parameters)
+sqlite3.OperationalError: 5 values for 4 columns
+info_logging.py [LINE:7] #WARNING [2022-05-29 08:35:23,609]  Это будет записано в log-файл
+executor.py [LINE:362] #INFO [2022-05-29 08:35:24,049]  Bot: BookingHotels [@BookingHotels214_bot]
+db.py [LINE:77] #INFO [2022-05-29 08:35:24,220]  
+        CREATE TABLE IF NOT EXISTS Users (
+            id integer PRIMARY KEY,
+            telegram_id integer NOT NULL,
+            name varchar(255) NOT NULL
+        );
+db.py [LINE:77] #INFO [2022-05-29 08:35:24,222]  
+        CREATE TABLE IF NOT EXISTS History (
+            id INTEGER PRIMARY KEY,
+            telegram_id INTEGER NOT NULL,
+            command varchar(255) NOT NULL,
+            datetime varchar(255) NOT NULL,
+            result varchar(255) NOT NULL
+        );
+dispatcher.py [LINE:358] #INFO [2022-05-29 08:35:24,223]  Start polling.
+lowprice.py [LINE:17] #INFO [2022-05-29 08:35:26,907]  643612405 /lowprice
+lowprice.py [LINE:37] #INFO [2022-05-29 08:35:36,744]  643612405 moscow
+lowprice.py [LINE:72] #INFO [2022-05-29 08:35:45,589]  643612405 2
+lowprice.py [LINE:100] #INFO [2022-05-29 08:35:48,116]  643612405 photos_yes
+lowprice.py [LINE:169] #INFO [2022-05-29 08:35:53,446]  643612405 1
+lowprice.py [LINE:239] #ERROR [2022-05-29 08:35:57,395]  5 values for 4 columns
+Traceback (most recent call last):
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\botrequests\lowprice.py", line 232, in show_low_price_hotels_with_photo
+    db.add_history(message.from_user.id, command, command_datetime,
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\db_sql\db.py", line 69, in add_history
+    self.execute(sql, parameters=parameters, commit=True)
+  File "c:\Users\zidan\Desktop\bot4\TelegramBot_HotelsCom\utils\db_sql\db.py", line 24, in execute
+    cursor.execute(sql, parameters)
+sqlite3.OperationalError: 5 values for 4 columns
